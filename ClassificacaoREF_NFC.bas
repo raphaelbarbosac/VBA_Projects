@@ -29,17 +29,17 @@ Dim RU2         As Integer  'Apenas para classificarmos dentro do if (prioridade
 'Guardamos a referência na var REF, ativamos o NFC e damos enter no local certo de busca
 'Verificamos se é uma REF inexistente
 'Verificamos quantas páginas a REF gerou no NFC
-'Depois percorremos todas essas páginas na coluna X buscando utilização Brasil
+'Depois percorremos todas essas páginas buscando utilização Brasil
 'Se acharmos Brasil, verificamos a coluna de data com a var "dt1"
 'Se dt1 for menor que a data atual, verificamos a var "dt2"
-'Se dt2 for maior que a data atual, esta REF será  RU4
+'Se dt2 for maior que a data atual, esta REF será classe RU4
 'Depois é verificado na linha acima, coluna Y, a origem e guardamos na variável "org"
 
 S = UCase(InputBox("Qual sessão do Emulation 3270 - NFC você está usando? A ou C?", "Sessão NFC"))
 
 Application.ScreenUpdating = False
 
-If S <> "C" Or S <> "A" Then
+If S <> "C" and S <> "A" Then
     Exit Sub
 End If
 
@@ -153,7 +153,7 @@ For Each cel In Range("A2:A" & z)
                 End If
                 
                 l = l + 1
-                C = C + 1
+                C = 1
                             
             Loop
             pag1 = pag1 + 1
@@ -192,5 +192,3 @@ Application.ScreenUpdating = True
 MsgBox "Classificação realizada!"
 
 End Sub
-
-
